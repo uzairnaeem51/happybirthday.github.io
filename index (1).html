@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Happy Birthday Website 2.0 | Aoudumber Bade">
+    <meta name="github" content="https://github.com/Aoudumber-Bade">
+    <title>HBD 2.0 | Aoudumber Bade</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+<!-- 🎵 SOFT BIRTHDAY MUSIC -->
+<audio id="birthdayMusic" loop>
+    <source src="happy-birthday-357371.mp3" type="audio/mpeg">
+</audio>
+
+<div id="countdownScreen">
+  <h1>🎉 Birthday Surprise 🎉</h1>
+  <p id="currentDate"></p>
+  <p id="currentTime"></p>
+  <h2 id="timer">01:00</h2>
+  <p>Wait for the surprise 💖</p>
+</div>
+
+<div id="wrapper" style="display: none;">
+
+    <!-- Modal for letter -->
+    <div id="letterModal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="titleLetter"></h3>
+            <p id="text__letter"></p>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="left">
+            <div class="title">
+                <h1 class="happy">
+                    <span style="--t:4s;">H</span>
+                    <span style="--t:4.2s;">a</span>
+                    <span style="--t:4.4s;">p</span>
+                    <span style="--t:4.6s;">p</span>
+                    <span style="--t:4.8s;">y</span>
+                </h1>
+                <h1 class="birthday">
+                    <span style="--t:5s;">B</span>
+                    <span style="--t:5.2s;">i</span>
+                    <span style="--t:5.4s;">r</span>
+                    <span style="--t:5.6s;">t</span>
+                    <span style="--t:5.8s;">h</span>
+                    <span style="--t:6s;">d</span>
+                    <span style="--t:6.2s;">a</span>
+                    <span style="--t:6.4s;">y</span>
+                </h1>
+                <div class="hat">
+                    <img src="./images/hat.png" width="130">
+                </div>
+            </div>
+
+            <div class="date__of__birth">
+                <span></span>
+            </div>
+
+            <div class="btn">
+                <button id="btn__letter">
+                    Click here AnooshaKhan
+                    <i class="fa-regular fa-envelope"></i>
+                </button>
+            </div>
+
+        </div>
+
+        <div class="right">
+            <div class="box__account">
+                <div class="image">
+                    <img src="images/WhatsApp Image 2025-12-22 at 5.34.40 AM.jpeg">
+                </div>
+                <div class="name">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>Anooshaaa</span>
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+                <div class="balloon_one">
+                    <img width="100" src="./images/balloon1.png">
+                </div>
+                <div class="balloon_two">
+                    <img width="100" src="./images/balloon2.png">
+                </div>
+            </div>
+
+            <div class="cricle">
+                <div class="text__cricle">
+                    <span style="--i:1;">h</span><span style="--i:2;">a</span>
+                    <span style="--i:3;">p</span><span style="--i:4;">p</span>
+                    <span style="--i:5;">y</span><span style="--i:6;">-</span>
+                    <span style="--i:7;">b</span><span style="--i:8;">i</span>
+                    <span style="--i:9;">r</span><span style="--i:10;">t</span>
+                    <span style="--i:11;">h</span><span style="--i:12;">d</span>
+                    <span style="--i:13;">a</span><span style="--i:14;">y</span>
+                </div>
+                <i class="fa-solid fa-heart"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="copy">
+    <p>Creater <a href="https://www.instagram.com/muhammad_uzair_naeem?igsh=dmRvaXliaXNxZmd1#">Muhammad Uzair </a></p>
+</div>
+
+<script src="timer.js"></script>
+<script>
+let datetxt = "5 April 1996";
+let datatxtletter = "May your life be filled with happiness, success, and endless smiles. You are truly special, and I’m so grateful to have you as my sister. 🎂✨";
+let titleLetter = "Happy Birthday, my dear sister Anoosha Khan 💕 ";
+
+let charArrDate = datetxt.split('');
+let charArrDateLetter = datatxtletter.split('');
+let charArrTitle = titleLetter.split('');
+let currentIndex = 0, currentIndexLetter = 0, currentIndexTitle = 0;
+
+let date__of__birth = document.querySelector(".date__of__birth span");
+let text__letter = document.querySelector("#text__letter");
+let titleLetterElement = document.querySelector("#titleLetter");
+
+setTimeout(() => {
+    let timeDatetxt = setInterval(() => {
+        if (currentIndex < charArrDate.length) {
+            date__of__birth.textContent += charArrDate[currentIndex++];
+        } else clearInterval(timeDatetxt);
+    }, 100);
+}, 12000);
+
+// Button click to show letter
+document.getElementById("btn__letter").addEventListener("click", () => {
+    const modal = document.getElementById("letterModal");
+    modal.style.display = "block";
+    
+    // Type the title
+    let titleInterval = setInterval(() => {
+        if (currentIndexTitle < charArrTitle.length) {
+            titleLetterElement.textContent += charArrTitle[currentIndexTitle++];
+        } else clearInterval(titleInterval);
+    }, 200);
+    
+    // Type the letter after a delay
+    setTimeout(() => {
+        let letterInterval = setInterval(() => {
+            if (currentIndexLetter < charArrDateLetter.length) {
+                text__letter.textContent += charArrDateLetter[currentIndexLetter++];
+            } else clearInterval(letterInterval);
+        }, 100);
+    }, 2000); // Delay before starting letter
+});
+
+// Close modal
+document.querySelector(".close").addEventListener("click", () => {
+    const modal = document.getElementById("letterModal");
+    modal.style.display = "none";
+    // Reset text
+    titleLetterElement.textContent = "";
+    text__letter.textContent = "";
+    currentIndexLetter = 0;
+    currentIndexTitle = 0;
+});
+
+// 🎵 MUSIC CONTROL
+const music = document.getElementById("birthdayMusic");
+music.volume = 0.25;
+</script>
+
+</body>
+</html>
